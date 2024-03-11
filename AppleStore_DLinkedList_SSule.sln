@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppleStore_DLinkedList_SSule", "AppleStore_DLinkedList_SSule\AppleStore_DLinkedList_SSule.csproj", "{B7CADD2E-4E79-4C0A-877C-3458BEF7D44C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7CADD2E-4E79-4C0A-877C-3458BEF7D44C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7CADD2E-4E79-4C0A-877C-3458BEF7D44C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7CADD2E-4E79-4C0A-877C-3458BEF7D44C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7CADD2E-4E79-4C0A-877C-3458BEF7D44C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D90E29DA-054A-4E22-B0F4-3836B96C81FA}
+	EndGlobalSection
+EndGlobal
