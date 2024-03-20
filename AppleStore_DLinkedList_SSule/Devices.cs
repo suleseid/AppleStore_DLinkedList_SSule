@@ -18,7 +18,7 @@ namespace AppleStore_DLinkedList_SSule
         public bool InStore { get; set; } // This is to track if the device is in the store
 
         public Devices(string model, int storage, string color, double price, string id, int year, bool inStore = true)
-        { 
+        {
             Model = model;
             Storage = storage;
             Color = color;
@@ -28,18 +28,24 @@ namespace AppleStore_DLinkedList_SSule
             InStore = inStore;
         }
         public void Device(string model, int storage, string color, double price, string id, int year, bool inStore = true)
-        {
+        {//The method checks the validity of the input parameters:
+            //It verifies whether id and model can be parsed as integers using int.TryParse.
             if (!int.TryParse(id, out int _)) // Check if ID is a valid number
                 throw new ArgumentException("Invalid ID. Please provide a valid numeric ID.");
 
             if (!int.TryParse(model, out int _)) // Check if model is a valid number
                 throw new ArgumentException("Invalid model. Please provide a valid numeric model.");
-
+            //It checks if year is within a valid range.
             if (year < 0 || year > DateTime.Now.Year) // Check if year is a valid number
                 throw new ArgumentException("Invalid year. Please provide a valid year.");
-
+            //It ensures that price is a non-negative number.
+            //If any of these conditions fail,
+            //An ArgumentException shows error message.
             if (price < 0) // Check if price is a valid number
                 throw new ArgumentException("Invalid price. Please provide a valid price.");
+            //Overall, this method ensures that when creating a new device object,
+            //The input parameters meet certain criteria and their validity,
+            //The main objects are maintaining data integrity and preventing errors.
         }
 
         public override string ToString()
@@ -89,12 +95,13 @@ namespace AppleStore_DLinkedList_SSule
                 {
                     newNode.Previous = Tail;
                     Tail.Next = newNode;
-                    Tail = newNode;
+                    Tail = newNode;//correctly insert the new node at the end of the list.
                 }
 
-                count++;// increment the count
+                count++;// increment the count and it refelects addition of the new node.
             }
             // Core Method: Remove devices by their values
+            //It checks various cases to determine how to remove the node
             public bool Remove(string id)
             {
                 Node current = Head;
@@ -102,29 +109,34 @@ namespace AppleStore_DLinkedList_SSule
                 {
                     if (current.Device.Id == id)
                     {
+                        //If the node is both the head and the tail, it sets both to null
                         if (current == Head && current == Tail) // Single node
                         {
                             Head = Tail = null;
                         }
                         else if (current == Head) // Head node
-                        {
+                        {//If the node is the head (but not the tail), it updates the Head.
                             Head = Head.Next;
-                            Head.Previous = null;
+                            Head.Previous = null;//sets the Previous reference of the new head to null.
                         }
-                        else if (current == Tail) // Tail node
+                        else if (current == Tail) // If the node is the tail (but not the head), it updates the Tail.
                         {
                             Tail = Tail.Previous;
                             Tail.Next = null;
                         }
-                        else // Node in the middle
+                        else // If the node is in the middle of the list,
+                             // it updates the Next reference of the previous node.
                         {
                             current.Previous.Next = current.Next;
                             current.Next.Previous = current.Previous;
                         }
-                        return true;
+                        return true;//After removing the node, it returns true
+                                    //to indicate successful removal.
                     }
                     current = current.Next;
                 }
+                //If no match is found after iterating through all nodes,
+                //it returns false
                 return false; // Device not found
             }
 
@@ -160,6 +172,7 @@ namespace AppleStore_DLinkedList_SSule
 
             private Node MergeSort(Node head)
             {
+                // Base case: if the list is empty or has only one node, return the head.
                 if (head == null || head.Next == null)
                     return head;
 
